@@ -4,38 +4,56 @@ require "header.php";
 
 <main>
 
-    <h1>Signup</h1>
-
     <?php
 
     if (isset($_GET['error'])) { // eger kullanici kayit olurken bos yer birakirsa hata mesaji
       if ($_GET['error'] == "emptyfields") {
-        echo '<p class="signuperror>"Fill in all fields!</p>'
+        echo '<p class="signuperror>"Fill in all fields!</p>';
       }
       else if ($_GET['error'] == "invaliduidmail") {
-        echo '<p class="signuperror>"Invalid username or email!</p>'
+        echo '<p class="signuperror>"Invalid username or email!</p>';
       }
-      else if ($_GET['signup'] == "succes") {
-        echo '<p class="signuperror>"SignUp Successful!</p>'
+      else if ($_GET['signup'] == "success") {
+        echo '<p class="signuperror>"SignUp Successful!</p>';
       }
-      
 
     }
 
      ?>
 
+     <div class="card">
+  <div class="card-body">
+
+  <h3> Bilgilerinizi giriniz </h3>
+
+
     <form class="form-signup" action="includes/signup.inc.php" method="post">
 
-        <input type="text" name="uid" placeholder="Username">
-        <input type="text" name="mail" placeholder="Email">
-        <input type="password" name="pwd" placeholder="Password">
-        <input type="password" name="pwd-repeat" placeholder="Repeat password">
+        <div class="form-label-group">
+        <input type="text" name="uid" class="form-control" placeholder="Kullanici Adi">
+        </div>
 
-        <button type="submit" name="signup-submit">Signup</button>
+        <div class="form-label-group">
+        <input type="text" name="mail" class="form-control" placeholder="Email">
+        </div>
 
+        <div class="form-label-group">
+        <input type="password" name="pwd" class="form-control" placeholder="Sifre">
+        </div>
+
+        <div class="form-label-group">
+        <input type="password" name="pwd-repeat" class="form-control" placeholder="Sifre Tekrar">
+        </div>
+
+        <div class="card-body">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="signup-submit">Kayit Ol</button>
+        </div>
 
 
     </form>
+
+  </div>
+</div>
 
 </main>
 
